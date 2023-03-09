@@ -3,6 +3,7 @@ package com.example.smarttravels;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -14,6 +15,10 @@ import com.example.smarttravels.Adapters.MyStateAdapter;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,6 +27,16 @@ public class MainActivity extends AppCompatActivity {
     public static final int PERMISSION_GOT = 6;
     TabLayout tabLayout;
     ViewPager2 viewPager;
+
+    String modifiedSentence;
+
+    String str=null;
+    private static final String host = null;
+    private int port;
+
+    TextView txt5,txt1;
+    byte[] send_data = new byte[1024];
+    byte[] receiveData = new byte[1024];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,5 +79,7 @@ public class MainActivity extends AppCompatActivity {
                         // decision.
                     }
                 });
+
+
 
 }
